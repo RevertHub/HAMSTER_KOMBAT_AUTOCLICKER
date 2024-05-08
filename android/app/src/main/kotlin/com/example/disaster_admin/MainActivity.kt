@@ -1,4 +1,4 @@
-package com.example.disaster_admin
+package com.mikestudio.disaster_admin
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,7 +1,7 @@
 import 'dart:ui';
 
-import 'package:disaster_management/bloc/weather_bloc_bloc.dart';
-import 'package:disaster_management/screens/disaster/home_screen.dart';
+import 'package:disaster_admin/bloc/weather_bloc_bloc.dart';
+import 'package:disaster_admin/screens/disaster/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';

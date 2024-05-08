@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "945103112875",
+    "project_id": "disaster-mini-project",
+    "storage_bucket": "disaster-mini-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:945103112875:android:36edc42397563fab0105ee",
+        "android_client_info": {
+          "package_name": "com.mikestudio.disaster_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "945103112875-t2ddd69fqc2ilu59ae013q4lblmbtrn1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKWLKMtUtuEaBJ63UozEBksE-jkHaQJG8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "945103112875-t2ddd69fqc2ilu59ae013q4lblmbtrn1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "945103112875-levk68s2cn8b911qop7soiig7i5vgd68.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.disasterManagement"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:945103112875:android:d86e04ec79e071f10105ee",
+        "android_client_info": {
+          "package_name": "com.mikestudio.disastermangement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "945103112875-vvklbbps5tg07bgk1mnpp05fnp3a92b0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mikestudio.disastermangement",
+            "certificate_hash": "984f5ae2b59e6b4c42df1918ae1dfefeaaa8c9b0"
+          }
+        },
+        {
+          "client_id": "945103112875-t2ddd69fqc2ilu59ae013q4lblmbtrn1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKWLKMtUtuEaBJ63UozEBksE-jkHaQJG8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "945103112875-t2ddd69fqc2ilu59ae013q4lblmbtrn1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "945103112875-levk68s2cn8b911qop7soiig7i5vgd68.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.disasterManagement"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

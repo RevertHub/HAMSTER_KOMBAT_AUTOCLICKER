@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:disaster_management/common/appbar.dart';
+import 'package:disaster_admin/common/appbar.dart';
 
 class ChatScreen extends StatefulWidget {
-  const ChatScreen({super.key, required this.reciverUserEmail, required this.reciverUserName});
-final String reciverUserEmail;
-final String reciverUserName;
+  const ChatScreen(
+      {super.key,
+      required this.reciverUserEmail,
+      required this.reciverUserName});
+  final String reciverUserEmail;
+  final String reciverUserName;
   @override
   State<ChatScreen> createState() => _ChatScreenState();
 }
@@ -12,13 +15,11 @@ final String reciverUserName;
 class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: TAppBar(
         title: Text(widget.reciverUserName),
         showbackarrow: true,
       ),
-   
     );
-
   }
 }

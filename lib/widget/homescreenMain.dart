@@ -97,18 +97,16 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
           await FirebaseFirestore.instance.collection('Users').doc(uid).get();
 
       if (userSnapshot.exists) {
-        final String? bloodGroup = userSnapshot.data()?['BloodGroup'];
-        final String? city = userSnapshot.data()?['City'];
+        final String? UserName = userSnapshot.data()?['UserName'];
 
-        if (bloodGroup != null) {
+        if (UserName != null) {
           await FirebaseFirestore.instance.collection("tokens").doc(uid).set({
             'token': token,
-            'bloodgroup': bloodGroup,
-            'City': city,
+            'UserName': UserName,
           });
-          print("Token and blood group saved successfully");
+          print("Token saved successfully");
         } else {
-          print("Blood group not found for user with UID: $uid");
+          print("found for user with UID: $uid");
         }
       } else {
         print("User document not found for UID: $uid");
@@ -154,74 +152,83 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                               // height: MediaQuery.of(context).size.height,
                               child: Stack(
                                 children: [
-                                   Align(
-                alignment: const AlignmentDirectional(2, -0.1),
-                child: Container(
-                  height: 300,
-                  width: 300,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color.fromARGB(255, 72, 58, 147),
-                  ),
-                ),
-              ),
-              Align(
-                alignment: const AlignmentDirectional(-3, -0.2),
-                child: Container(
-                  height: 300,
-                  width: 300,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color.fromARGB(255, 47, 18, 189),
-                  ),
-                ),
-              ),
-              Align(
-                alignment: const AlignmentDirectional(0, -1.0),
-                child: Container(
-                  height: 300,
-                  width: 300,
-                  decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 114, 63, 197),
-                  ),
-                ),
-              ),
-              Column(
-                children: [
-                     Align(
-                alignment: const AlignmentDirectional(2, -0.1),
-                child: Container(
-                  height: 300,
-                  width: 300,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color.fromARGB(255, 72, 52, 171),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 1),
-                child: Align(
-                  alignment: const AlignmentDirectional(-3, -0.2),
-                  child: Container(
-                    height: 300,
-                    width: 300,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color.fromARGB(255, 104, 80, 225),
-                    ),
-                  ),
-                ),
-              ),
-              
-                ],
-              ),
-              BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 100.0, sigmaY: 100.0),
-                child: Container(
-                  decoration: const BoxDecoration(color: Colors.transparent),
-                ),
-              ),
+                                  Align(
+                                    alignment:
+                                        const AlignmentDirectional(2, -0.1),
+                                    child: Container(
+                                      height: 300,
+                                      width: 300,
+                                      decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Color.fromARGB(255, 72, 58, 147),
+                                      ),
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment:
+                                        const AlignmentDirectional(-3, -0.2),
+                                    child: Container(
+                                      height: 300,
+                                      width: 300,
+                                      decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Color.fromARGB(255, 47, 18, 189),
+                                      ),
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment:
+                                        const AlignmentDirectional(0, -1.0),
+                                    child: Container(
+                                      height: 300,
+                                      width: 300,
+                                      decoration: const BoxDecoration(
+                                        color:
+                                            Color.fromARGB(255, 114, 63, 197),
+                                      ),
+                                    ),
+                                  ),
+                                  Column(
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            const AlignmentDirectional(2, -0.1),
+                                        child: Container(
+                                          height: 300,
+                                          width: 300,
+                                          decoration: const BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Color.fromARGB(
+                                                255, 72, 52, 171),
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 1),
+                                        child: Align(
+                                          alignment: const AlignmentDirectional(
+                                              -3, -0.2),
+                                          child: Container(
+                                            height: 300,
+                                            width: 300,
+                                            decoration: const BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: Color.fromARGB(
+                                                  255, 104, 80, 225),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  BackdropFilter(
+                                    filter: ImageFilter.blur(
+                                        sigmaX: 100.0, sigmaY: 100.0),
+                                    child: Container(
+                                      decoration: const BoxDecoration(
+                                          color: Colors.transparent),
+                                    ),
+                                  ),
                                   BlocBuilder<WeatherBlocBloc,
                                       WeatherBlocState>(
                                     builder: (context, state) {
@@ -246,11 +253,12 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                 ),
                                               ),
                                               Padding(
-
-                                                    padding: const EdgeInsets.only(left :15.0, right: 10),
+                                                padding: const EdgeInsets.only(
+                                                    left: 15.0, right: 10),
                                                 child: Row(
                                                   children: [
-                                                    const Icon(Iconsax.location_add,
+                                                    const Icon(
+                                                        Iconsax.location_add,
                                                         color: Color.fromARGB(
                                                             255, 245, 2, 2)),
                                                     const SizedBox(
@@ -335,8 +343,8 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                 height: 15,
                                               ),
                                               Padding(
-                                                padding: const EdgeInsets.only(left :10.0, right: 10),
-
+                                                padding: const EdgeInsets.only(
+                                                    left: 10.0, right: 10),
                                                 child: Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
@@ -359,8 +367,8 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                             const Text(
                                                               'Sunrise',
                                                               style: TextStyle(
-                                                                color:
-                                                                    Colors.white,
+                                                                color: Colors
+                                                                    .white,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w300,
@@ -377,8 +385,8 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                                       .sunrise!),
                                                               style:
                                                                   const TextStyle(
-                                                                color:
-                                                                    Colors.white,
+                                                                color: Colors
+                                                                    .white,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold,
@@ -389,8 +397,10 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                       ],
                                                     ),
                                                     Padding(
-                                                                                                          padding: const EdgeInsets.only(left :15.0, right: 20),
-                                                
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 15.0,
+                                                              right: 20),
                                                       child: Row(
                                                         children: [
                                                           Image.asset(
@@ -407,9 +417,10 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                             children: [
                                                               const Text(
                                                                 'Sunset',
-                                                                style: TextStyle(
-                                                                  color:
-                                                                      Colors.white,
+                                                                style:
+                                                                    TextStyle(
+                                                                  color: Colors
+                                                                      .white,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w300,
@@ -426,8 +437,8 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                                         .sunset!),
                                                                 style:
                                                                     const TextStyle(
-                                                                  color:
-                                                                      Colors.white,
+                                                                  color: Colors
+                                                                      .white,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .bold,
@@ -449,7 +460,8 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                 ),
                                               ),
                                               Padding(
-                                              padding: const EdgeInsets.only(left :8.0, right: 10),
+                                                padding: const EdgeInsets.only(
+                                                    left: 8.0, right: 10),
                                                 child: Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
@@ -472,8 +484,8 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                             const Text(
                                                               'Max Temp',
                                                               style: TextStyle(
-                                                                color:
-                                                                    Colors.white,
+                                                                color: Colors
+                                                                    .white,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w300,
@@ -486,8 +498,8 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                               '${state.weather.tempMax!.celsius!.round()} °C',
                                                               style:
                                                                   const TextStyle(
-                                                                color:
-                                                                    Colors.white,
+                                                                color: Colors
+                                                                    .white,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold,
@@ -498,7 +510,10 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                       ],
                                                     ),
                                                     Padding(
-                                                      padding: const EdgeInsets.only(left :8.0, right: 10),
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 8.0,
+                                                              right: 10),
                                                       child: Row(
                                                         children: [
                                                           Image.asset(
@@ -515,9 +530,10 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                             children: [
                                                               const Text(
                                                                 'Min Temp',
-                                                                style: TextStyle(
-                                                                  color:
-                                                                      Colors.white,
+                                                                style:
+                                                                    TextStyle(
+                                                                  color: Colors
+                                                                      .white,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w300,
@@ -530,8 +546,8 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                                 '${state.weather.tempMin!.celsius!.round()} °C',
                                                                 style:
                                                                     const TextStyle(
-                                                                  color:
-                                                                      Colors.white,
+                                                                  color: Colors
+                                                                      .white,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .bold,

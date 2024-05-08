@@ -4,7 +4,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class Alertsnd extends StatelessWidget {
+class Alertsnd extends StatefulWidget {
+  @override
+  State<Alertsnd> createState() => _AlertsndState();
+}
+
+class _AlertsndState extends State<Alertsnd> {
+  String? selectedCity;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,12 +19,60 @@ class Alertsnd extends StatelessWidget {
         title: Text('Alert all'),
       ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            sendPushMessageToGroup(
-                'Be Vigilant', 'be vigilant you are gonna die', context);
-          },
-          child: Text('Send Notification to All'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Select Your City",
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Container(
+              width: 300,
+              child: DropdownButton<String>(
+                icon: Padding(
+                  padding: const EdgeInsets.only(left: 80.0),
+                  child: Icon(Icons.arrow_drop_down),
+                ),
+                value: selectedCity,
+                onChanged: (String? newValue) {
+                  setState(() {
+                    selectedCity = newValue;
+                  });
+                },
+                items: <String>[
+                  'Alappuzha',
+                  'Ernakulam',
+                  'Idukki',
+                  'Kannur',
+                  'Kasaragod',
+                  'Kollam',
+                  'Kottayam',
+                  'Kozhikode',
+                  'Malappuram',
+                  'Palakkad',
+                  'Pathanamthitta',
+                  'Thiruvananthapuram',
+                  'Thrissur',
+                  'Wayanad',
+                ].map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                sendPushMessageToGroup(
+                    'Be Vigilant ⚠', 'be vigilant you are gonna die', context);
+              },
+              child: Text('Send Notification to All'),
+            ),
+          ],
         ),
       ),
     );
@@ -40,12 +95,11 @@ void sendPushMessageToGroup(
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text("Alert Sent"),
-          content: Text("Push messages sent successfully to all tokens"),
+          content: Text("Alert sent successfully to all "),
           actions: <Widget>[
             TextButton(
               child: Text("OK"),
               onPressed: () {
-                Navigator.of(context).pop();
                 Navigator.of(context).pop();
               },
             ),

@@ -97,12 +97,14 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
           await FirebaseFirestore.instance.collection('Users').doc(uid).get();
 
       if (userSnapshot.exists) {
-        final String? UserName = userSnapshot.data()?['UserName'];
+        final String? blood = userSnapshot.data()?['bloodgroup'];
+        final String? city = userSnapshot.data()?['City'];
 
-        if (UserName != null) {
+        if (blood != null) {
           await FirebaseFirestore.instance.collection("tokens").doc(uid).set({
             'token': token,
-            'UserName': UserName,
+            'bloodgroup': blood,
+            'City': city,
           });
           print("Token saved successfully");
         } else {

@@ -9,6 +9,7 @@ import 'package:disaster_admin/screens/disaster/shake.dart';
 import 'package:disaster_admin/screens/disaster/staticdata_screen.dart';
 import 'package:disaster_admin/screens/homescreens/widget/home_appbar.dart';
 import 'package:disaster_admin/screens/homescreens/widget/homewidget.dart';
+import 'package:disaster_admin/screens/settings/victimsos.dart';
 import 'package:disaster_admin/weather/data/alerts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -621,7 +622,7 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                               MaterialPageRoute(
                                                                   builder:
                                                                       (context) =>
-                                                                          ShakeLocationPage()));
+                                                                          VictimSOSPage()));
                                                         },
                                                       ),
                                                       const Text(

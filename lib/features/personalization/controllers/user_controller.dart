@@ -74,7 +74,6 @@ class UserController extends GetxController {
   //   }
   // }
 
-
   Future<void> saveUserRecords(UserCredential? userCredential) async {
     try {
       await fetchUserRecord();
@@ -84,28 +83,27 @@ class UserController extends GetxController {
               UserModel.nameParts(userCredential.user!.displayName ?? '');
           final userName = UserModel.generateUsername(
               userCredential.user!.displayName ?? '');
-              String bloodGroup = 'Nill';
-              int  age = 18;
-              String gender = '';
-              String city = '';
-              String street = '';
+          String bloodGroup = 'Nill';
+          int age = 18;
+          String gender = '';
+          String city = '';
+          String street = '';
 
           final user = UserModel(
-            id: userCredential.user!.uid,
-            email: userCredential.user!.email ?? '',
-            firstName: nameParts[0],
-            lastName: nameParts.length > 1 ? nameParts.sublist(1).join('') : '',
-            bloodGroup: bloodGroup,
-            age: age,
-            gender: gender,
-            city: city,
-            street: street,
-          
-            userName: userName,
-            profilePicture: userCredential.user!.photoURL ?? '',
-            phoneNumber: userCredential.user!.phoneNumber ?? '',
-            eligible: 'false'
-          );
+              id: userCredential.user!.uid,
+              email: userCredential.user!.email ?? '',
+              firstName: nameParts[0],
+              lastName:
+                  nameParts.length > 1 ? nameParts.sublist(1).join('') : '',
+              bloodGroup: bloodGroup,
+              age: age,
+              gender: gender,
+              city: city,
+              street: street,
+              userName: userName,
+              profilePicture: userCredential.user!.photoURL ?? '',
+              phoneNumber: userCredential.user!.phoneNumber ?? '',
+              eligible: 'false');
           await userRepositiory.saveUserRecord(user);
         }
       }

